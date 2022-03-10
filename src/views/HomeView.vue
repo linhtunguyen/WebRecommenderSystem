@@ -29,7 +29,7 @@
           </div>
           <div
             class="hero__item set-bg"
-            data-setbg="assets/img/hero/banner.jpg"
+            data-setbg="https://cdn.tgdd.vn/2022/03/campaign/Group46821-464x517.png"
           >
             <div class="hero__text">
               <span>FRUIT FRESH</span>
@@ -109,197 +109,14 @@
         </div>
       </div>
       <div class="row featured__filter">
-        <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-          <div class="featured__item">
-            <div
-              class="featured__item__pic set-bg"
-              data-setbg="assets/img/featured/feature-1.jpg"
-            >
-              <ul class="featured__item__pic__hover">
-                <li>
-                  <a href="#"><i class="fa fa-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-retweet"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-            <div class="featured__item__text">
-              <h6><a href="#">Crab Pool Security</a></h6>
-              <h5>$30.00</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-          <div class="featured__item">
-            <div
-              class="featured__item__pic set-bg"
-              data-setbg="assets/img/featured/feature-2.jpg"
-            >
-              <ul class="featured__item__pic__hover">
-                <li>
-                  <a href="#"><i class="fa fa-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-retweet"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-            <div class="featured__item__text">
-              <h6><a href="#">Crab Pool Security</a></h6>
-              <h5>$30.00</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
-          <div class="featured__item">
-            <div
-              class="featured__item__pic set-bg"
-              data-setbg="assets/img/featured/feature-3.jpg"
-            >
-              <ul class="featured__item__pic__hover">
-                <li>
-                  <a href="#"><i class="fa fa-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-retweet"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-            <div class="featured__item__text">
-              <h6><a href="#">Crab Pool Security</a></h6>
-              <h5>$30.00</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
-          <div class="featured__item">
-            <div
-              class="featured__item__pic set-bg"
-              data-setbg="assets/img/featured/feature-4.jpg"
-            >
-              <ul class="featured__item__pic__hover">
-                <li>
-                  <a href="#"><i class="fa fa-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-retweet"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-            <div class="featured__item__text">
-              <h6><a href="#">Crab Pool Security</a></h6>
-              <h5>$30.00</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-          <div class="featured__item">
-            <div
-              class="featured__item__pic set-bg"
-              data-setbg="assets/img/featured/feature-5.jpg"
-            >
-              <ul class="featured__item__pic__hover">
-                <li>
-                  <a href="#"><i class="fa fa-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-retweet"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-            <div class="featured__item__text">
-              <h6><a href="#">Crab Pool Security</a></h6>
-              <h5>$30.00</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
-          <div class="featured__item">
-            <div
-              class="featured__item__pic set-bg"
-              data-setbg="assets/img/featured/feature-6.jpg"
-            >
-              <ul class="featured__item__pic__hover">
-                <li>
-                  <a href="#"><i class="fa fa-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-retweet"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-            <div class="featured__item__text">
-              <h6><a href="#">Crab Pool Security</a></h6>
-              <h5>$30.00</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-          <div class="featured__item">
-            <div
-              class="featured__item__pic set-bg"
-              data-setbg="assets/img/featured/feature-7.jpg"
-            >
-              <ul class="featured__item__pic__hover">
-                <li>
-                  <a href="#"><i class="fa fa-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-retweet"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-            <div class="featured__item__text">
-              <h6><a href="#">Crab Pool Security</a></h6>
-              <h5>$30.00</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-          <div class="featured__item">
-            <div
-              class="featured__item__pic set-bg"
-              data-setbg="assets/img/featured/feature-8.jpg"
-            >
-              <ul class="featured__item__pic__hover">
-                <li>
-                  <a href="#"><i class="fa fa-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-retweet"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-            <div class="featured__item__text">
-              <h6><a href="#">Crab Pool Security</a></h6>
-              <h5>$30.00</h5>
-            </div>
-          </div>
+        <div
+          v-for="item in hotProducts"
+          :key="item.code"
+          class="col-lg-3 col-md-4 col-sm-6 mix oranges"
+        >
+          <ProductItem :product="item"
+     
+          ></ProductItem>
         </div>
       </div>
     </div>
@@ -592,15 +409,26 @@
 
 <script>
 import SideBar from "@/components/homeview/SideBar.vue";
+import ProductItem from "@/components/productlist/ProductItem.vue";
 import axios from "axios";
 export default {
   components: {
     SideBar,
+    ProductItem,
+  },
+  data() {
+    return {
+      hotProducts: [], //Danh sách sản phẩm đang hot
+    };
   },
   async created() {
-    var proId = 220042001279;
+    var self = this;
+
+    // var proId = 220042001279;
     try {
-      var rs = await axios.get("http://127.0.0.1:8000/items/" + proId);
+      var rs = await axios.get("http://localhost:8000/items/hotproduct");
+      self.hotProducts = rs.data.list_item_infor;
+      // var rs = await axios.get("http://127.0.0.1:8000/items/" + proId);
       console.log(rs);
     } catch (error) {
       console.error(error);
@@ -610,5 +438,13 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.hero__item {
+  background-image: url("https://cdn.tgdd.vn/2022/03/campaign/Group46821-464x517.png");
+  // background-image: attr(data-setbg);
+  background-size: contain;
+  background-position: right;
+
+  // background-color: red;
+}
 </style>
