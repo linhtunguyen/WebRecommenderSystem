@@ -13,6 +13,7 @@ const routes = [
     name: 'detail',
     component: DetailView
     //page detail
+    //test page
   },
   {
     path: '/about',
