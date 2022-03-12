@@ -1,8 +1,6 @@
 <template>
   <div class="featured__item">
-    <div
-      class="featured__item__pic"
-    >
+    <div class="featured__item__pic">
       <img :src="product.img" alt="" />
       <ul class="featured__item__pic__hover">
         <li>
@@ -18,9 +16,8 @@
     </div>
     <div class="featured__item__text">
       <h6>
-        <a href="#">{{
-          product?.name + " " + product?.brand + " " + product?.cpu1
-        }}</a>
+        <a href="#">{{ product?.full_name }}</a>
+        <!-- product?.name + " " + product?.brand + " " + product?.cpu1 -->
       </h6>
       <h5>{{ product?.price }}</h5>
     </div>
@@ -34,6 +31,21 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.featured__item__pic {
+  height: 178px;
+  width: 262px;
+  border: 1px solid #7fad39;
+  border-radius: 8px;
 
-<style>
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.featured__item:hover .featured__item__pic .featured__item__pic__hover {
+  bottom: 15px;
+}
 </style>

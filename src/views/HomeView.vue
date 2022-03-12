@@ -7,14 +7,23 @@
         </div>
         <div class="col-lg-9">
           <div class="hero__search">
+            <!-- <SearchForm v-model="searchQueryString"></SearchForm> -->
+            <!-- :value="searchQueryString" -->
             <div class="hero__search__form">
               <form action="#">
                 <div class="hero__search__categories">
-                  All Categories
+                  Tất cả
                   <span class="arrow_carrot-down"></span>
                 </div>
-                <input type="text" placeholder="What do yo u need?" />
-                <button type="submit" class="site-btn">SEARCH</button>
+                <input
+                  type="text"
+                  v-model="searchQueryString"
+                  placeholder="Bạn tìm gì..."
+                />
+                <!-- v-model="searchQueryString" -->
+                <button class="site-btn" @click="onClickBtnSearch(searchQueryString)">
+                  TÌM KIẾM
+                </button>
               </form>
             </div>
             <div class="hero__search__phone">
@@ -31,12 +40,12 @@
             class="hero__item set-bg"
             data-setbg="https://cdn.tgdd.vn/2022/03/campaign/Group46821-464x517.png"
           >
-            <div class="hero__text">
-              <span>FRUIT FRESH</span>
-              <h2>Vegetable <br />100% Organic</h2>
-              <p>Free Pickup and Delivery Available</p>
-              <a href="#" class="primary-btn">SHOP NOW</a>
-            </div>
+            <!-- <div class="hero__text">
+              <span>HÀNG CHÍNH HÃNG</span>
+              <h2>Đồ điện tử<br />Siêu ưu đãi</h2>
+              <p>Đặt và giao hàng miễn phí toàn quốc</p>
+              <a href="#" class="primary-btn">MUA NGAY</a>
+            </div> -->
           </div>
         </div>
       </div>
@@ -95,15 +104,15 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="section-title">
-            <h2>Featured Product</h2>
+            <h2>Sản phẩm nổi bật</h2>
           </div>
           <div class="featured__controls">
             <ul>
-              <li class="active" data-filter="*">All</li>
-              <li data-filter=".oranges">Oranges</li>
-              <li data-filter=".fresh-meat">Fresh Meat</li>
-              <li data-filter=".vegetables">Vegetables</li>
-              <li data-filter=".fastfood">Fastfood</li>
+              <li class="active" data-filter="*">Tất cả</li>
+              <li data-filter=".oranges">Điện thoại</li>
+              <li data-filter=".fresh-meat">Laptop</li>
+              <li data-filter=".vegetables">Tablet</li>
+              <li data-filter=".fastfood">Phụ kiện</li>
             </ul>
           </div>
         </div>
@@ -114,9 +123,7 @@
           :key="item.code"
           class="col-lg-3 col-md-4 col-sm-6 mix oranges"
         >
-          <ProductItem :product="item"
-     
-          ></ProductItem>
+          <ProductItem :product="item"></ProductItem>
         </div>
       </div>
     </div>
@@ -409,16 +416,19 @@
 
 <script>
 import SideBar from "@/components/homeview/SideBar.vue";
+import SearchForm from "@/components/search/SearchForm.vue";
 import ProductItem from "@/components/productlist/ProductItem.vue";
 import axios from "axios";
 export default {
   components: {
     SideBar,
     ProductItem,
+    SearchForm,
   },
   data() {
     return {
       hotProducts: [], //Danh sách sản phẩm đang hot
+      searchQueryString: "hehe",
     };
   },
   async created() {
@@ -434,17 +444,51 @@ export default {
       console.error(error);
     }
   },
-  methods: {},
+  methods: {
+    /**
+     * XỬ lý sự kiện click vào nút tìm kiếm
+     * Author: TQHUY (11/03/2022)
+     */
+    onClickBtnSearch(value) {
+      // var self = this;
+      this.$router.push({
+        name: "search",
+        params: {
+          query: value,
+        },
+      });
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.hero__item {
-  background-image: url("https://cdn.tgdd.vn/2022/03/campaign/Group46821-464x517.png");
-  // background-image: attr(data-setbg);
-  background-size: contain;
-  background-position: right;
+.hero {
+  padding: 0;
+  .hero__search {
+    margin: 0;
+  }
+  .hero__item {
+    background-image: url("https://cdn.tgdd.vn/2022/03/banner/XA-HANG-(-830-X-300)(1)(1)-830x300.jpg");
+    // background-image: attr(data-setbg);
+    background-size: contain;
+    background-position: right;
+    height: 310px;
+    padding: 0;
+    // background-color: red;
+  }
+  .hero__text {
+    h2 {
+      font-family: system-ui;
+    }
+  }
+}
 
-  // background-color: red;
+.featured {
+  padding-top: 10px;
+
+  // .section-title {
+
+  // }
 }
 </style>
