@@ -11,6 +11,7 @@ const routes = [
     path: '/detail',
     name: 'detail',
     component: DetailView
+    //page detail
   },
   {
     path: '/about',
