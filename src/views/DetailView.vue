@@ -147,7 +147,7 @@
             <div class="row">
               <div class="col-sm-5">
                 <div class="view-product">
-                  <img src="images/product-details/1.jpg" alt="" />
+                  <img :src="productInfo.img" alt="" />
                   <h3>ZOOM</h3>
                 </div>
               </div>
@@ -159,16 +159,17 @@
                     class="newarrival"
                     alt=""
                   />
-                  <h2>Laptop Hp 8G</h2>
-                  <p>Web ID: 1089772</p>
+                  <h2>{{ productInfo.full_name }}</h2>
+                  <p>Web ID: {{ productInfo.code }}</p>
                   <img src="images/product-details/rating.png" alt="" />
                   <span>
-                    <span>Giá :170000 đ</span>
+                    <span>Giá :{{ productInfo.price }}</span>
                   </span>
-                  <p><b>CPU:</b> In Stock</p>
-                  <p><b>Ram:</b> New</p>
-                  <p><b>Brand:</b> HP</p>
-                  <p><b>Card màn hình :</b> HP</p>
+                  <p><b>CPU:</b> {{ productInfo.cpu1 }}</p>
+                  <p><b>Ram:</b> {{ productInfo.ram }}</p>
+                  <p><b>Brand:</b> {{ productInfo.brand }}</p>
+                  <p><b>Màn hình :</b>{{ productInfo.screen1 }}</p><p> {{ productInfo.screen2 }} </p>
+                  <p><b>Card màn hình :</b> {{ productInfo.vga1 }}</p><p> {{ productInfo.vga2 }}</p>
                   <a href=""
                     ><img
                       src="images/product-details/share.png"
@@ -215,36 +216,20 @@
               class="carousel slide"
               data-ride="carousel"
             >
-              <div class="row">
-                <div class="col-sm-4">
+              <div class="row"  >
+                <div class="col-md-4" v-for="item in relatedProducts" 
+                 :key="item.code">
                   <div class="product-image-wrapper">
                     <div class="single-products">
                       <div class="productinfo text-center">
-                        <img src="images/home/recommend1.jpg" alt="" />
-                        <h2>Tên sản phẩm</h2>
-                        <p>Giá</p>
+                        <img :src="item.img" alt="" />
+                        <h5>Tên sản phẩm :{{ item.full_name}}</h5>
+                        <p>Giá :{{ item.price}}</p>
                         <button
                           type="button"
                           class="btn btn-default add-to-cart"
                         >
-                          <i class="fa fa-shopping-cart"></i>Xem chi tiết
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="product-image-wrapper">
-                    <div class="single-products">
-                      <div class="productinfo text-center">
-                        <img src="images/home/recommend1.jpg" alt="" />
-                        <h2>Tên sản phẩm</h2>
-                        <p>Giá</p>
-                        <button
-                          type="button"
-                          class="btn btn-default add-to-cart"
-                        >
-                          <i class="fa fa-shopping-cart"></i>Xem chi tiết
+                          <i class="fa fa-shopping-cart" @click="onClickViewDetail(item.code)"></i>Xem chi tiết
                         </button>
                       </div>
                     </div>
@@ -261,10 +246,35 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-  //   mounted() {
-  //     alert('vao detail roi');
-  //   },
+  data() {
+    return {
+      productInfo: {},
+      relatedProducts: [],
+    };
+  },
+
+  async created() {
+    console.log(this.$route.params);
+    var self = this;
+    var productCode = this.$route.params.productCode;
+    var rs = await axios.get(
+      'http://localhost:8000/items/testmongo/' + productCode
+    );
+    self.relatedProducts = rs.data.list_infor.relatedProducts;
+    self.productInfo = rs.data.list_infor.productInfo;
+  },
+     methods: {
+    onClickViewDetail(proCode) {
+      console.log(proCode);
+      this.$router.push({
+        name: 'detail',
+        params: { productCode: proCode },
+      });
+    },
+ 
+  }
 };
 </script>
 

@@ -7,7 +7,8 @@
       :key="item.code"
       class="col-lg-3 col-md-4 col-sm-6 mix oranges"
     >
-      <ProductItem :product="item"></ProductItem>
+      <ProductItem :product="item"
+      ></ProductItem>
     </div>
   </div>
 </template>
@@ -24,7 +25,7 @@ export default {
       listItem: [], //Danh sách sản phẩm sẽ hiển thị lên kết quả tìm kiếm
     };
   },
-  async mounted() {
+  async created() {
     console.log(this.$route.params);
     var self = this;
     var searchQuery = this.$route.params.query;
@@ -34,15 +35,7 @@ export default {
     self.listItem = rs.data.listProduct;
     console.log(rs.data.listProduct);
   },
-  created() {
-    // this.$watch(
-    //   () => this.$route.params,
-    //   (toParams, previousParams) => {
-    //     print(toParams);
-    //     // react to route changes...
-    //   }
-    // );
-  },
+  
   methods: {
     changeRoute() {
       this.$router.push({

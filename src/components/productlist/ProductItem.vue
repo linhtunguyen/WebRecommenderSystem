@@ -1,5 +1,5 @@
 <template>
-  <div class="featured__item">
+  <div class="featured__item" @click="onClickViewDetail">
     <div class="featured__item__pic">
       <img :src="product.img" alt="" />
       <ul class="featured__item__pic__hover">
@@ -28,6 +28,16 @@
 export default {
   props: {
     product: { type: Object, default: function () {} },
+  },
+  methods: {
+    onClickViewDetail() {
+      var self = this;
+      console.log(this.product.code);
+      this.$router.push({
+        name: 'detail',
+        params: { productCode: self.product.code },
+      });
+    },
   },
 };
 </script>

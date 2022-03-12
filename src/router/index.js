@@ -15,7 +15,7 @@ const routes = [
     component: SearchView,
   },
   {
-    path: "/detail",
+    path: "/detail=:productCode",
     name: "detail",
     component: DetailView,
   },
