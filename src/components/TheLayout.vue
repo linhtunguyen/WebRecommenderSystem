@@ -40,7 +40,7 @@
       <div class="row">
         <div class="col-lg-3">
           <div class="header__logo">
-            <a href="#" class="logo">V-Shop</a>
+            <a href="/" class="logo">V-Shop</a>
           </div>
         </div>
         <div class="col-lg-6">
@@ -160,6 +160,10 @@
 <script>
 export default {};
 </script>
-
-<style>
+<style lang="scss" scoped>
+.header__logo {
+  &:hover a {
+    color: black;
+  }
+}
 </style>
