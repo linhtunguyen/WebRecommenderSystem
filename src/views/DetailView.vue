@@ -98,10 +98,8 @@
                 </div>
               </div>
             </div>
-            <!--/category-products-->
             <div class="brands_products">
-              <!--brands_products-->
-              <h2>Brands</h2>
+              <h2>Loại sản phẩm</h2>
               <div class="brands-name">
                 <ul class="nav nav-pills nav-stacked">
                   <li>
@@ -154,27 +152,20 @@
               <div class="col-sm-7">
                 <div class="product-information">
                   <!--/product-information-->
-                  <img
-                    src="images/product-details/new.jpg"
-                    class="newarrival"
-                    alt=""
-                  />
-                  <h2>Laptop Hp 8G</h2>
-                  <p>Web ID: 1089772</p>
+                  <img :src="item.img" class="newarrival" alt="" />
+                  <h2>{{ item.name + item.brand + item.cpu1 }}</h2>
+                  <p>Web ID: {{ item.code }}</p>
                   <img src="images/product-details/rating.png" alt="" />
                   <span>
-                    <span>Giá :170000 đ</span>
+                    <span>Giá :{{ formatCurrency(item.price) }} đ</span>
                   </span>
-                  <p><b>CPU:</b> In Stock</p>
-                  <p><b>Ram:</b> New</p>
-                  <p><b>Brand:</b> HP</p>
-                  <p><b>Card màn hình :</b> HP</p>
-                  <a href=""
-                    ><img
-                      src="images/product-details/share.png"
-                      class="share img-responsive"
-                      alt=""
-                  /></a>
+                  <p><b>CPU:</b> {{ item.cpu1 }}</p>
+                  <p><b>Ram:</b> {{ item.ram }}</p>
+                  <p><b>Brand:</b> {{ item.brand }}</p>
+                  <p><b>Card màn hình :</b> {{ item.vga1 }}</p>
+                  <!-- <a href=""
+                    ><img :src="item.img" class="share img-responsive" alt=""
+                  /></a> -->
                 </div>
                 <!--/product-information-->
               </div>
@@ -262,9 +253,43 @@
 
 <script>
 export default {
-  //   mounted() {
-  //     alert('vao detail roi');
-  //   },
+  mounted() {
+    // alert('vao detail roi');
+    this.item = {
+      code: "220042001641",
+      name: "Laptop",
+      price: "52990000",
+      category: " Laptop ",
+      brand: " MacBook ",
+      cpu1: "Apple M1 Pro",
+      cpu2: "200GB/s memory bandwidth",
+      ram: "16 GB",
+      disk: "512 GB SSD",
+      vga1: "Card tích hợp",
+      vga2: "14 core-GPU",
+      screen1: "14.2 inch",
+      screen2: "Liquid Retina XDR display (3024 x 1964)",
+      design: "Vỏ kim loại nguyên khối",
+      size: "Dài 312.6 mm - Rộng 221.2 mm - Dày 15.5 mm - Nặng 1.6 kg",
+      release: "Dài 312.6 mm - Rộng 221.2 mm - Dày 15.5 mm - Nặng 1.6 kg",
+      rating: "5.0",
+      img: "https://cdn.tgdd.vn/Products/Images/44/253581/Slider/vi-vn-apple-pro-14-m1-pro-2021-8-core-cpu-16gb-3.jpg",
+      full_name:
+        "Laptop  MacBook  Apple M1 Pro 200GB/s memory bandwidth  16 GB Card tích hợp 14 core-GPU 14.2 inch Liquid Retina XDR display (3024 x 1964)",
+    };
+  },
+  data() {
+    return {
+      item: {},
+    };
+  },
+  methods: {
+    formatCurrency(money) {
+      return parseFloat(money)
+        .toFixed(2)
+        .replace(/\d(?=(\d{3})+\.)/g, "$&,");
+    },
+  },
 };
 </script>
 
@@ -279,7 +304,7 @@ export default {
 .left-sidebar h2,
 .brands_products h2 {
   color: #fe980f;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 700;
   margin: 0 auto 30px;
@@ -290,7 +315,7 @@ export default {
 }
 .left-sidebar h2:after,
 h2.title:after {
-  content: ' ';
+  content: " ";
   position: absolute;
   border: 1px solid #f5f5f5;
   bottom: 8px;
@@ -300,7 +325,7 @@ h2.title:after {
   z-index: -2;
 }
 .left-sidebar h2:before {
-  content: ' ';
+  content: " ";
   position: absolute;
   background: #fff;
   bottom: -6px;
@@ -331,7 +356,7 @@ h2.title:after {
 }
 .category-products .panel-default .panel-heading .panel-title a {
   color: #696763;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   text-decoration: none;
   text-transform: uppercase;
@@ -358,14 +383,14 @@ h2.title:after {
 }
 .panel-body ul li a {
   color: #696763;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 12px;
   text-transform: uppercase;
 }
 .left-sidebar h2,
 .brands_products h2 {
   color: #fe980f;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 700;
   margin: 0 auto 30px;
@@ -382,7 +407,7 @@ h2.title:after {
 .brands-name .nav-stacked li a {
   background-color: #ffffff;
   color: #696763;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   padding: 5px 25px;
   text-decoration: none;
@@ -415,7 +440,7 @@ h2.title:after {
   background: #fe980f;
   bottom: 0;
   color: #ffffff;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 700;
   margin-bottom: 0;
@@ -472,14 +497,14 @@ h2.title:after {
 }
 .product-information h2 {
   color: #363432;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   margin-top: 0;
 }
 
 .product-information p {
   color: #696763;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin-bottom: 5px;
 }
 
@@ -491,7 +516,7 @@ h2.title:after {
 .product-information span span {
   color: #fe980f;
   float: left;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 30px;
   font-weight: 700;
   margin-right: 20px;
@@ -500,7 +525,7 @@ h2.title:after {
 .product-information span input {
   border: 1px solid #dededc;
   color: #696763;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   font-weight: 700;
   height: 33px;
@@ -510,7 +535,7 @@ h2.title:after {
 }
 .product-information span label {
   color: #696763;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
   margin-right: 5px;
 }
@@ -530,7 +555,7 @@ h2.title:after {
   border-radius: 0;
   color: #b3afa8;
   display: block;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   text-transform: uppercase;
 }
@@ -558,12 +583,12 @@ h2.title:after {
 }
 .productinfo h2 {
   color: #fe980f;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 24px;
   font-weight: 700;
 }
 .productinfo p {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #696763;
