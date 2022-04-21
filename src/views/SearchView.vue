@@ -1,6 +1,33 @@
 <template>
-  <h1 @click="changeRoute">SEARCH VIEW</h1>
+  <!-- <h1 @click="changeRoute">SEARCH VIEW</h1> -->
 
+  <div class="hero__search">
+    <div class="hero__search__form">
+      <form action="#">
+        <div class="hero__search__categories">
+          Tất cả
+          <span class="arrow_carrot-down"></span>
+        </div>
+        <input
+          type="text"
+          v-model="searchQueryString"
+          placeholder="Bạn tìm gì..."
+        />
+        <button class="site-btn" @click="onClickBtnSearch(searchQueryString)">
+          TÌM KIẾM
+        </button>
+      </form>
+    </div>
+    <div class="hero__search__phone">
+      <div class="hero__search__phone__icon">
+        <i class="fa fa-phone"></i>
+      </div>
+      <div class="hero__search__phone__text">
+        <h5>1234567890</h5>
+        <span>support 24/7 time</span>
+      </div>
+    </div>
+  </div>
   <div class="row featured__filter">
     <div
       v-for="item in listItem"
@@ -22,6 +49,7 @@ export default {
   data() {
     return {
       listItem: [], //Danh sách sản phẩm sẽ hiển thị lên kết quả tìm kiếm
+      searchQueryString: "",
     };
   },
   async mounted() {
@@ -44,6 +72,19 @@ export default {
     // );
   },
   methods: {
+    /**
+     * XỬ lý sự kiện click vào nút tìm kiếm
+     * Author: TQHUY (11/03/2022)
+     */
+    onClickBtnSearch(value) {
+      // var self = this;
+      this.$router.push({
+        name: "search",
+        params: {
+          query: value,
+        },
+      });
+    },
     changeRoute() {
       this.$router.push({
         name: "search",
@@ -57,4 +98,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.hero__search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .hero__search__phone {
+    margin-left: 15px;
+  }
+}
+.featured__filter {
+  padding: 0 60px;
+}
 </style>

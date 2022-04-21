@@ -5,6 +5,7 @@
         <div class="col-sm-3">
           <!--category-productsr-->
           <div class="left-sidebar">
+            <!-- <h1>{{ $route.params.id }}</h1> -->
             <h2>Danh mục</h2>
             <div class="panel-group category-products" id="accordian">
               <div class="panel panel-default">
@@ -182,19 +183,6 @@
             </div>
             <div class="tab-content">
               {{ item.full_name }}
-              <!-- <div class="tab-pane fade active in" id="reviews">
-                <div class="col-sm-12">
-                  <p>
-                    Description :Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.Duis aute irure dolor in reprehenderit in
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                  </p>
-                  <p><b>Write Your Review</b></p>
-                </div>
-              </div> -->
             </div>
           </div>
           <!--/category-tab-->
@@ -215,43 +203,29 @@
                 >
                   <ProductItem :product="item"></ProductItem>
                 </div>
+              </div>
+            </div>
 
-                <div class="col-sm-4">
-                  <div class="product-image-wrapper">
-                    <div class="single-products">
-                      <div class="productinfo text-center">
-                        <img src="images/home/recommend1.jpg" alt="" />
-                        <h2>Tên sản phẩm</h2>
-                        <p>Giá</p>
-                        <button
-                          type="button"
-                          class="btn btn-default add-to-cart"
-                        >
-                          <i class="fa fa-shopping-cart"></i>Xem chi tiết
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="product-image-wrapper">
-                    <div class="single-products">
-                      <div class="productinfo text-center">
-                        <img src="images/home/recommend1.jpg" alt="" />
-                        <h2>Tên sản phẩm</h2>
-                        <p>Giá</p>
-                        <button
-                          type="button"
-                          class="btn btn-default add-to-cart"
-                        >
-                          <i class="fa fa-shopping-cart"></i>Xem chi tiết
-                        </button>
+            <!-- <section class="categories">
+              <div class="container">
+                <div class="row">
+                  <div class="categories__slider owl-carousel">
+                    <div
+                      class="col-lg-3"
+                      v-for="item in recommendedItems"
+                      :key="item.code"
+                    >
+                      <div
+                        class="categories__item set-bg"
+                        data-setbg="assets/img/categories/cat-1.jpg"
+                      >
+                        <ProductItem :product="item"></ProductItem>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </section> -->
           </div>
           <!--/recommended_items-->
         </div>
@@ -269,35 +243,41 @@ export default {
     ProductItem,
   },
   async mounted() {
+    var detailItemRes = (
+      await axios.get("http://127.0.0.1:8000/detail/" + this.$route.params.id)
+    ).data;
+
+    console.log(detailItemRes);
+    this.item = detailItemRes.detail_product;
     // alert('vao detail roi');
-    this.item = {
-      code: "220042001641",
-      name: "Laptop",
-      price: "52990000",
-      category: " Laptop ",
-      brand: " MacBook ",
-      cpu1: "Apple M1 Pro",
-      cpu2: "200GB/s memory bandwidth",
-      ram: "16 GB",
-      disk: "512 GB SSD",
-      vga1: "Card tích hợp",
-      vga2: "14 core-GPU",
-      screen1: "14.2 inch",
-      screen2: "Liquid Retina XDR display (3024 x 1964)",
-      design: "Vỏ kim loại nguyên khối",
-      size: "Dài 312.6 mm - Rộng 221.2 mm - Dày 15.5 mm - Nặng 1.6 kg",
-      release: "Dài 312.6 mm - Rộng 221.2 mm - Dày 15.5 mm - Nặng 1.6 kg",
-      rating: "5.0",
-      img: "https://cdn.tgdd.vn/Products/Images/44/253581/Slider/vi-vn-apple-pro-14-m1-pro-2021-8-core-cpu-16gb-3.jpg",
-      full_name:
-        "Laptop  MacBook  Apple M1 Pro 200GB/s memory bandwidth  16 GB Card tích hợp 14 core-GPU 14.2 inch Liquid Retina XDR display (3024 x 1964)",
-    };
+    // this.item = {
+    //   code: "220042001641",
+    //   name: "Laptop",
+    //   price: "52990000",
+    //   category: " Laptop ",
+    //   brand: " MacBook ",
+    //   cpu1: "Apple M1 Pro",
+    //   cpu2: "200GB/s memory bandwidth",
+    //   ram: "16 GB",
+    //   disk: "512 GB SSD",
+    //   vga1: "Card tích hợp",
+    //   vga2: "14 core-GPU",
+    //   screen1: "14.2 inch",
+    //   screen2: "Liquid Retina XDR display (3024 x 1964)",
+    //   design: "Vỏ kim loại nguyên khối",
+    //   size: "Dài 312.6 mm - Rộng 221.2 mm - Dày 15.5 mm - Nặng 1.6 kg",
+    //   release: "Dài 312.6 mm - Rộng 221.2 mm - Dày 15.5 mm - Nặng 1.6 kg",
+    //   rating: "5.0",
+    //   img: "https://cdn.tgdd.vn/Products/Images/44/253581/Slider/vi-vn-apple-pro-14-m1-pro-2021-8-core-cpu-16gb-3.jpg",
+    //   full_name:
+    //     "Laptop  MacBook  Apple M1 Pro 200GB/s memory bandwidth  16 GB Card tích hợp 14 core-GPU 14.2 inch Liquid Retina XDR display (3024 x 1964)",
+    // };
 
     var apiRes = await axios.get(
       "http://127.0.0.1:8000/items/testmongo/" + this.item.code
-    ).list_item_infor;
+    );
     console.log(apiRes);
-    this.recommendedItems = apiRes.data;
+    this.recommendedItems = apiRes.data.list_item_infor;
   },
   data() {
     return {

@@ -41,7 +41,7 @@
           </div>
           <div
             class="hero__item set-bg"
-            data-setbg="https://cdn.tgdd.vn/2022/03/campaign/Group46821-464x517.png"
+            data-setbg="//cdn.tgdd.vn/2022/04/banner/okk-1920x450-min-1920x450.jpg"
           >
             <!-- <div class="hero__text">
               <span>HÀNG CHÍNH HÃNG</span>
@@ -49,54 +49,6 @@
               <p>Đặt và giao hàng miễn phí toàn quốc</p>
               <a href="#" class="primary-btn">MUA NGAY</a>
             </div> -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="categories">
-    <div class="container">
-      <div class="row">
-        <div class="categories__slider owl-carousel">
-          <div class="col-lg-3">
-            <div
-              class="categories__item set-bg"
-              data-setbg="assets/img/categories/cat-1.jpg"
-            >
-              <h5><a href="#">Fresh Fruit</a></h5>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div
-              class="categories__item set-bg"
-              data-setbg="assets/img/categories/cat-2.jpg"
-            >
-              <h5><a href="#">Dried Fruit</a></h5>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div
-              class="categories__item set-bg"
-              data-setbg="assets/img/categories/cat-3.jpg"
-            >
-              <h5><a href="#">Vegetables</a></h5>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div
-              class="categories__item set-bg"
-              data-setbg="assets/img/categories/cat-4.jpg"
-            >
-              <h5><a href="#">drink fruits</a></h5>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div
-              class="categories__item set-bg"
-              data-setbg="assets/img/categories/cat-5.jpg"
-            >
-              <h5><a href="#">drink fruits</a></h5>
-            </div>
           </div>
         </div>
       </div>
