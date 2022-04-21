@@ -51,13 +51,13 @@
                   </h4>
                 </div>
                 <div id="mens" class="panel-collapse collapse">
-                  <div class="panel-body">
+                  <!-- <div class="panel-body">
                     <ul>
                       <li><a href="">Fendi</a></li>
                       <li><a href="">Guess</a></li>
                       <li><a href="">Valentino</a></li>
                     </ul>
-                  </div>
+                  </div> -->
                 </div>
               </div>
 
@@ -154,16 +154,29 @@
                 <div class="product-information">
                   <!--/product-information-->
                   <!-- <img :src="item.img" class="newarrival" alt="" /> -->
-                  <h2>{{ item.name + item.brand + item.cpu1 }}</h2>
+                  <h2>
+                    {{
+                      item.name +
+                      (item.brand ?? "") +
+                      (item.cpu1 ?? "") +
+                      (item["Phan Giai"] ?? "")
+                    }}
+                  </h2>
                   <p>Web ID: {{ item.code }}</p>
                   <img src="images/product-details/rating.png" alt="" />
                   <span>
                     <span>Giá :{{ formatCurrency(item.price) }} đ</span>
                   </span>
-                  <p><b>CPU:</b> {{ item.cpu1 }}</p>
-                  <p><b>Ram:</b> {{ item.ram }}</p>
-                  <p><b>Brand:</b> {{ item.brand }}</p>
-                  <p><b>Card màn hình :</b> {{ item.vga1 }}</p>
+                  <p v-show="item.cpu1"><b>CPU:</b> {{ item.cpu1 }}</p>
+                  <p v-show="item.ram"><b>Ram:</b> {{ item.ram }}</p>
+                  <p v-show="item.brand"><b>Brand:</b> {{ item.brand }}</p>
+                  <p v-show="item.vga1">
+                    <b>Card màn hình :</b> {{ item.vga1 }}
+                  </p>
+                  <p v-show="item['Phan Giai']">
+                    <b>Phân Giải:</b> {{ item["Phan Giai"] }}
+                  </p>
+                  <p v-show="item.LED"><b>LED:</b> {{ item.LED }}</p>
                   <!-- <a href=""
                     ><img :src="item.img" class="share img-responsive" alt=""
                   /></a> -->
@@ -249,35 +262,16 @@ export default {
 
     console.log(detailItemRes);
     this.item = detailItemRes.detail_product;
-    // alert('vao detail roi');
-    // this.item = {
-    //   code: "220042001641",
-    //   name: "Laptop",
-    //   price: "52990000",
-    //   category: " Laptop ",
-    //   brand: " MacBook ",
-    //   cpu1: "Apple M1 Pro",
-    //   cpu2: "200GB/s memory bandwidth",
-    //   ram: "16 GB",
-    //   disk: "512 GB SSD",
-    //   vga1: "Card tích hợp",
-    //   vga2: "14 core-GPU",
-    //   screen1: "14.2 inch",
-    //   screen2: "Liquid Retina XDR display (3024 x 1964)",
-    //   design: "Vỏ kim loại nguyên khối",
-    //   size: "Dài 312.6 mm - Rộng 221.2 mm - Dày 15.5 mm - Nặng 1.6 kg",
-    //   release: "Dài 312.6 mm - Rộng 221.2 mm - Dày 15.5 mm - Nặng 1.6 kg",
-    //   rating: "5.0",
-    //   img: "https://cdn.tgdd.vn/Products/Images/44/253581/Slider/vi-vn-apple-pro-14-m1-pro-2021-8-core-cpu-16gb-3.jpg",
-    //   full_name:
-    //     "Laptop  MacBook  Apple M1 Pro 200GB/s memory bandwidth  16 GB Card tích hợp 14 core-GPU 14.2 inch Liquid Retina XDR display (3024 x 1964)",
-    // };
 
-    var apiRes = await axios.get(
-      "http://127.0.0.1:8000/items/testmongo/" + this.item.code
-    );
-    console.log(apiRes);
-    this.recommendedItems = apiRes.data.list_item_infor;
+    try {
+      var apiRes = await axios.get(
+        "http://127.0.0.1:8000/items/testmongo/" + this.item.code
+      );
+      console.log(apiRes);
+      this.recommendedItems = apiRes.data.list_item_infor;
+    } catch (error) {
+      console.error(error);
+    }
   },
   data() {
     return {
