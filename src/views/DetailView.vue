@@ -145,14 +145,14 @@
             <div class="row">
               <div class="col-sm-5">
                 <div class="view-product">
-                  <img src="images/product-details/1.jpg" alt="" />
+                  <img :src="item.img" alt="" style="object-fit: contain" />
                   <h3>ZOOM</h3>
                 </div>
               </div>
               <div class="col-sm-7">
                 <div class="product-information">
                   <!--/product-information-->
-                  <img :src="item.img" class="newarrival" alt="" />
+                  <!-- <img :src="item.img" class="newarrival" alt="" /> -->
                   <h2>{{ item.name + item.brand + item.cpu1 }}</h2>
                   <p>Web ID: {{ item.code }}</p>
                   <img src="images/product-details/rating.png" alt="" />
@@ -181,7 +181,8 @@
               </ul>
             </div>
             <div class="tab-content">
-              <div class="tab-pane fade active in" id="reviews">
+              {{ item.full_name }}
+              <!-- <div class="tab-pane fade active in" id="reviews">
                 <div class="col-sm-12">
                   <p>
                     Description :Lorem ipsum dolor sit amet, consectetur
@@ -193,7 +194,7 @@
                   </p>
                   <p><b>Write Your Review</b></p>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <!--/category-tab-->
@@ -207,6 +208,14 @@
               data-ride="carousel"
             >
               <div class="row">
+                <div
+                  v-for="item in recommendedItems"
+                  :key="item.code"
+                  class="col-sm-4"
+                >
+                  <ProductItem :product="item"></ProductItem>
+                </div>
+
                 <div class="col-sm-4">
                   <div class="product-image-wrapper">
                     <div class="single-products">
@@ -252,8 +261,14 @@
 </template>
 
 <script>
+import ProductItem from "@/components/productlist/ProductItem.vue";
+import axios from "axios";
+
 export default {
-  mounted() {
+  components: {
+    ProductItem,
+  },
+  async mounted() {
     // alert('vao detail roi');
     this.item = {
       code: "220042001641",
@@ -277,10 +292,17 @@ export default {
       full_name:
         "Laptop  MacBook  Apple M1 Pro 200GB/s memory bandwidth  16 GB Card tích hợp 14 core-GPU 14.2 inch Liquid Retina XDR display (3024 x 1964)",
     };
+
+    var apiRes = await axios.get(
+      "http://127.0.0.1:8000/items/testmongo/" + this.item.code
+    ).list_item_infor;
+    console.log(apiRes);
+    this.recommendedItems = apiRes.data;
   },
   data() {
     return {
       item: {},
+      recommendedItems: [],
     };
   },
   methods: {
@@ -546,7 +568,6 @@ h2.title:after {
   background: #40403e;
   border-bottom: 1px solid #fe980f;
   list-style: none outside none;
-  margin: 0 0 30px;
   padding: 0;
   width: 100%;
 }
@@ -569,6 +590,9 @@ h2.title:after {
   margin-left: 15px;
   margin-right: 15px;
   padding-bottom: 10px;
+  .col-sm-12 {
+    padding: 12px;
+  }
 }
 .shop-details-tab .col-sm-12 {
   padding-left: 0;
