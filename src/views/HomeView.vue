@@ -428,7 +428,7 @@ export default {
   data() {
     return {
       hotProducts: [], //Danh sách sản phẩm đang hot
-      searchQueryString: "hehe",
+      searchQueryString: "",
     };
   },
   async created() {
