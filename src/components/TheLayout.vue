@@ -19,7 +19,7 @@
                 <a href="#"><i class="fa fa-linkedin"></i></a>
                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
               </div>
-              <div class="header__top__right__language">
+              <!-- <div class="header__top__right__language">
                 <img src="assets/img/language.png" alt="" />
                 <div>English</div>
                 <span class="arrow_carrot-down"></span>
@@ -27,7 +27,7 @@
                   <li><a href="#">Spanis</a></li>
                   <li><a href="#">English</a></li>
                 </ul>
-              </div>
+              </div> -->
               <div class="header__top__right__auth">
                 <a href="#"><i class="fa fa-user"></i> Login</a>
               </div>

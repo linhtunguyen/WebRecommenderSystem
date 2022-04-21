@@ -10,11 +10,11 @@
             <div class="hero__search__form">
               <form action="#">
                 <div class="hero__search__categories">
-                  All Categories
+                  Danh mục
                   <span class="arrow_carrot-down"></span>
                 </div>
-                <input type="text" placeholder="What do yo u need?" />
-                <button type="submit" class="site-btn">SEARCH</button>
+                <input type="text" placeholder="Bạn tìm gì?" />
+                <button type="submit" class="site-btn">TÌM</button>
               </form>
             </div>
             <div class="hero__search__phone">
@@ -32,10 +32,10 @@
             data-setbg="https://cdn.tgdd.vn/2022/03/campaign/Group46821-464x517.png"
           >
             <div class="hero__text">
-              <span>FRUIT FRESH</span>
-              <h2>Vegetable <br />100% Organic</h2>
-              <p>Free Pickup and Delivery Available</p>
-              <a href="#" class="primary-btn">SHOP NOW</a>
+              <span>THIẾT BỊ ĐIỆN TỬ</span>
+              <h2>Hàng chính hãng <br />100%</h2>
+              <p>Miễn phí vận chuyển toàn quốc</p>
+              <a href="#" class="primary-btn">MUA NGAY</a>
             </div>
           </div>
         </div>
@@ -95,15 +95,14 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="section-title">
-            <h2>Featured Product</h2>
+            <h2>SẢN PHẨM ĐẶC BIỆT</h2>
           </div>
           <div class="featured__controls">
             <ul>
-              <li class="active" data-filter="*">All</li>
-              <li data-filter=".oranges">Oranges</li>
-              <li data-filter=".fresh-meat">Fresh Meat</li>
-              <li data-filter=".vegetables">Vegetables</li>
-              <li data-filter=".fastfood">Fastfood</li>
+              <li class="active" data-filter="*">TẤT CẢ</li>
+              <li data-filter=".oranges">Máy tính</li>
+              <li data-filter=".fresh-meat">Điện thoại</li>
+              <li data-filter=".vegetables">Máy in</li>
             </ul>
           </div>
         </div>
@@ -114,9 +113,7 @@
           :key="item.code"
           class="col-lg-3 col-md-4 col-sm-6 mix oranges"
         >
-          <ProductItem :product="item"
-     
-          ></ProductItem>
+          <ProductItem :product="item"></ProductItem>
         </div>
       </div>
     </div>
