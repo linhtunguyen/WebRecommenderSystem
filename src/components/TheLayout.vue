@@ -7,7 +7,7 @@
             <div class="header__top__left">
               <ul>
                 <li><i class="fa fa-envelope"></i> therichposts@gmail.com</li>
-                <li>Free Shipping for all Order of $99</li>
+                <li>Mua hàng thông minh</li>
               </ul>
             </div>
           </div>
@@ -29,7 +29,7 @@
                 </ul>
               </div> -->
               <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
+                <a href="#"><i class="fa fa-user"></i> Tiện ích</a>
               </div>
             </div>
           </div>
@@ -46,19 +46,19 @@
         <div class="col-lg-6">
           <nav class="header__menu">
             <ul>
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">Shop</a></li>
+              <li class="active"><a href="#">Trang chủ</a></li>
+              <!-- <li><a href="#">Cửa hàng</a></li> -->
               <li>
-                <a href="#">Pages</a>
+                <a href="#">Mua thông minh</a>
                 <ul class="header__menu__dropdown">
-                  <li><a href="#">Shop Details</a></li>
-                  <li><a href="#">Shoping Cart</a></li>
+                  <!-- <li><a href="#">Blog</a></li> -->
+                  <!-- <li><a href="#">Shoping Cart</a></li>
                   <li><a href="#">Check Out</a></li>
-                  <li><a href="#">Blog Details</a></li>
+                  <li><a href="#">Blog Details</a></li> -->
                 </ul>
               </li>
               <li><a href="#">Blog</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="#">Liên hệ</a></li>
             </ul>
           </nav>
         </div>
@@ -74,7 +74,7 @@
                 >
               </li>
             </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
+            <div class="header__cart__price">Khuyến mãi: <span>150.00 đ</span></div>
           </div>
         </div>
       </div>
@@ -93,8 +93,8 @@
               <a href="#" class="logo">V-Shop</a>
             </div>
             <ul>
-              <li>Address: Ludhiana</li>
-              <li>Phone: 1234567890</li>
+              <li>Địa chỉ : Hà Nội</li>
+              <li>Điện thoại: 1234567890</li>
               <li>Email: therichposts@gmail.com</li>
             </ul>
           </div>
@@ -103,29 +103,29 @@
           <div class="footer__widget">
             <h6>Useful Links</h6>
             <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">About Our Shop</a></li>
-              <li><a href="#">Secure Shopping</a></li>
-              <li><a href="#">Delivery infomation</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Our Sitemap</a></li>
+              <li><a href="#">Về chúng tôi</a></li>
+              <li><a href="#">Về mua sắm</a></li>
+              <li><a href="#">Chính sách bảo mật</a></li>
+              <li><a href="#">Dịch vụ gợi ý</a></li>
+              <li><a href="#">Chính sách mua sắm</a></li>
+              <li><a href="#">Địa chỉ chi tiết</a></li>
             </ul>
             <ul>
-              <li><a href="#">Who We Are</a></li>
-              <li><a href="#">Our Services</a></li>
-              <li><a href="#">Projects</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">Innovation</a></li>
-              <li><a href="#">Testimonials</a></li>
+              <li><a href="#">Thông tin chi tiết</a></li>
+              <li><a href="#">Dịch vụ</a></li>
+              <li><a href="#">Dự án</a></li>
+              <li><a href="#">Liên hệ</a></li>
+              <li><a href="#">Sự đổi mới</a></li>
+              <li><a href="#">Chứng nhận</a></li>
             </ul>
           </div>
         </div>
         <div class="col-lg-4 col-md-12">
           <div class="footer__widget">
-            <h6>Join Our Newsletter Now</h6>
-            <p>Get E-mail updates about our latest shop and special offers.</p>
+            <h6>Gửi thư về địa chỉ</h6>
+            <p>abc@gmail.com</p>
             <form action="#">
-              <input type="text" placeholder="Enter your mail" />
+              <input type="text" placeholder="Nhập email" />
               <button type="submit" class="site-btn">Subscribe</button>
             </form>
             <div class="footer__widget__social">
@@ -144,7 +144,7 @@
               <p>
                 Copyright &copy;2021 All rights reserved | This template is made
                 with <i class="fa fa-heart" aria-hidden="true"></i> by
-                <a href="#" target="_blank">Jassa</a>
+                <a href="#" target="_blank">abc</a>
               </p>
             </div>
             <div class="footer__copyright__payment">
