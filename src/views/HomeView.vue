@@ -7,14 +7,26 @@
         </div>
         <div class="col-lg-9">
           <div class="hero__search">
+            <!-- <SearchForm v-model="searchQueryString"></SearchForm> -->
+            <!-- :value="searchQueryString" -->
             <div class="hero__search__form">
               <form action="#">
                 <div class="hero__search__categories">
-                  Danh mục
+                  Tất cả
                   <span class="arrow_carrot-down"></span>
                 </div>
-                <input type="text" placeholder="Bạn tìm gì?" />
-                <button type="submit" class="site-btn">TÌM</button>
+                <input
+                  type="text"
+                  v-model="searchQueryString"
+                  placeholder="Bạn tìm gì..."
+                />
+                <!-- v-model="searchQueryString" -->
+                <button
+                  class="site-btn"
+                  @click="onClickBtnSearch(searchQueryString)"
+                >
+                  TÌM KIẾM
+                </button>
               </form>
             </div>
             <div class="hero__search__phone">
@@ -29,62 +41,14 @@
           </div>
           <div
             class="hero__item set-bg"
-            data-setbg="https://cdn.tgdd.vn/2022/03/campaign/Group46821-464x517.png"
+            data-setbg="//cdn.tgdd.vn/2022/04/banner/okk-1920x450-min-1920x450.jpg"
           >
-            <div class="hero__text">
-              <span>THIẾT BỊ ĐIỆN TỬ</span>
-              <h2>Hàng chính hãng <br />100%</h2>
-              <p>Miễn phí vận chuyển toàn quốc</p>
+            <!-- <div class="hero__text">
+              <span>HÀNG CHÍNH HÃNG</span>
+              <h2>Đồ điện tử<br />Siêu ưu đãi</h2>
+              <p>Đặt và giao hàng miễn phí toàn quốc</p>
               <a href="#" class="primary-btn">MUA NGAY</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="categories">
-    <div class="container">
-      <div class="row">
-        <div class="categories__slider owl-carousel">
-          <div class="col-lg-3">
-            <div
-              class="categories__item set-bg"
-              data-setbg="assets/img/categories/cat-1.jpg"
-            >
-              <h5><a href="#">Fresh Fruit</a></h5>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div
-              class="categories__item set-bg"
-              data-setbg="assets/img/categories/cat-2.jpg"
-            >
-              <h5><a href="#">Dried Fruit</a></h5>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div
-              class="categories__item set-bg"
-              data-setbg="assets/img/categories/cat-3.jpg"
-            >
-              <h5><a href="#">Vegetables</a></h5>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div
-              class="categories__item set-bg"
-              data-setbg="assets/img/categories/cat-4.jpg"
-            >
-              <h5><a href="#">drink fruits</a></h5>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div
-              class="categories__item set-bg"
-              data-setbg="assets/img/categories/cat-5.jpg"
-            >
-              <h5><a href="#">drink fruits</a></h5>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -95,14 +59,15 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="section-title">
-            <h2>SẢN PHẨM ĐẶC BIỆT</h2>
+            <h2>Sản phẩm nổi bật</h2>
           </div>
           <div class="featured__controls">
             <ul>
-              <li class="active" data-filter="*">TẤT CẢ</li>
-              <li data-filter=".oranges">Máy tính</li>
-              <li data-filter=".fresh-meat">Điện thoại</li>
-              <li data-filter=".vegetables">Máy in</li>
+              <li class="active" data-filter="*">Tất cả</li>
+              <li data-filter=".oranges">Điện thoại</li>
+              <li data-filter=".fresh-meat">Laptop</li>
+              <li data-filter=".vegetables">Tablet</li>
+              <li data-filter=".fastfood">Phụ kiện</li>
             </ul>
           </div>
         </div>
@@ -118,22 +83,6 @@
       </div>
     </div>
   </section>
-  <div class="banner">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6">
-          <div class="banner__pic">
-            <img src="assets/img/banner/banner-1.jpg" alt="" />
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6">
-          <div class="banner__pic">
-            <img src="assets/img/banner/banner-2.jpg" alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <section class="latest-product spad">
     <div class="container">
       <div class="row">
@@ -340,7 +289,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="section-title from-blog__title">
-            <h2>From The Blog</h2>
+            <h2>Khuyến Mãi Đặc Biệt</h2>
           </div>
         </div>
       </div>
@@ -348,9 +297,12 @@
         <div class="col-lg-4 col-md-4 col-sm-6">
           <div class="blog__item">
             <div class="blog__item__pic">
-              <img src="assets/img/blog/blog-1.jpg" alt="" />
+              <img
+                src="//cdn.tgdd.vn/2022/02/banner/samsung-390-210-390x210.png"
+                alt=""
+              />
             </div>
-            <div class="blog__item__text">
+            <!-- <div class="blog__item__text">
               <ul>
                 <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
                 <li><i class="fa fa-comment-o"></i> 5</li>
@@ -360,15 +312,18 @@
                 Sed quia non numquam modi tempora indunt ut labore et dolore
                 magnam aliquam quaerat
               </p>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6">
           <div class="blog__item">
             <div class="blog__item__pic">
-              <img src="assets/img/blog/blog-2.jpg" alt="" />
+              <img
+                src="//cdn.tgdd.vn/2021/10/banner/appleDT-390x210-1.png"
+                alt=""
+              />
             </div>
-            <div class="blog__item__text">
+            <!-- <div class="blog__item__text">
               <ul>
                 <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
                 <li><i class="fa fa-comment-o"></i> 5</li>
@@ -378,15 +333,18 @@
                 Sed quia non numquam modi tempora indunt ut labore et dolore
                 magnam aliquam quaerat
               </p>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6">
           <div class="blog__item">
             <div class="blog__item__pic">
-              <img src="assets/img/blog/blog-3.jpg" alt="" />
+              <img
+                src="//cdn.tgdd.vn/2022/04/banner/chuyentranglenovo3-390x210.png"
+                alt=""
+              />
             </div>
-            <div class="blog__item__text">
+            <!-- <div class="blog__item__text">
               <ul>
                 <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
                 <li><i class="fa fa-comment-o"></i> 5</li>
@@ -396,7 +354,7 @@
                 Sed quia non numquam modi tempora indunt ut labore et dolore
                 magnam aliquam quaerat
               </p>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -406,16 +364,19 @@
 
 <script>
 import SideBar from "@/components/homeview/SideBar.vue";
+import SearchForm from "@/components/search/SearchForm.vue";
 import ProductItem from "@/components/productlist/ProductItem.vue";
 import axios from "axios";
 export default {
   components: {
     SideBar,
     ProductItem,
+    SearchForm,
   },
   data() {
     return {
       hotProducts: [], //Danh sách sản phẩm đang hot
+      searchQueryString: "",
     };
   },
   async created() {
@@ -431,17 +392,51 @@ export default {
       console.error(error);
     }
   },
-  methods: {},
+  methods: {
+    /**
+     * XỬ lý sự kiện click vào nút tìm kiếm
+     * Author: TQHUY (11/03/2022)
+     */
+    onClickBtnSearch(value) {
+      // var self = this;
+      this.$router.push({
+        name: "search",
+        params: {
+          query: value,
+        },
+      });
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.hero__item {
-  background-image: url("https://cdn.tgdd.vn/2022/03/campaign/Group46821-464x517.png");
-  // background-image: attr(data-setbg);
-  background-size: contain;
-  background-position: right;
+.hero {
+  padding: 0;
+  .hero__search {
+    margin: 0;
+  }
+  .hero__item {
+    background-image: url("https://cdn.tgdd.vn/2022/03/banner/XA-HANG-(-830-X-300)(1)(1)-830x300.jpg");
+    // background-image: attr(data-setbg);
+    background-size: contain;
+    background-position: right;
+    height: 310px;
+    padding: 0;
+    // background-color: red;
+  }
+  .hero__text {
+    h2 {
+      font-family: system-ui;
+    }
+  }
+}
 
-  // background-color: red;
+.featured {
+  padding-top: 10px;
+
+  // .section-title {
+
+  // }
 }
 </style>
