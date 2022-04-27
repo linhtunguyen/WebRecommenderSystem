@@ -33,10 +33,10 @@ export default {
           name: "Phụ kiện",
           id: 4,
         },
-        {
-          name: "Điện thoại thông minh",
-          id: 5,
-        },
+        // {
+        //   name: "Điện thoại",
+        //   id: 5,
+        // },
         {
           name: "PC, máy in",
           id: 6,
