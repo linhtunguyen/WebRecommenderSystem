@@ -7,7 +7,7 @@
             <div class="header__top__left">
               <ul>
                 <li><i class="fa fa-envelope"></i> therichposts@gmail.com</li>
-                <li>Free Shipping for all Order of $99</li>
+                <li>Mua hàng thông minh</li>
               </ul>
             </div>
           </div>
@@ -29,7 +29,7 @@
                 </ul>
               </div> -->
               <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
+                <a href="#"><i class="fa fa-user"></i> Tiện ích</a>
               </div>
             </div>
           </div>
@@ -46,19 +46,19 @@
         <div class="col-lg-6">
           <nav class="header__menu">
             <ul>
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">Shop</a></li>
+              <li class="active"><a href="#">Trang chủ</a></li>
+              <!-- <li><a href="#">Cửa hàng</a></li> -->
               <li>
-                <a href="#">Pages</a>
+                <a href="#">Mua thông minh</a>
                 <ul class="header__menu__dropdown">
-                  <li><a href="#">Shop Details</a></li>
-                  <li><a href="#">Shoping Cart</a></li>
+                  <!-- <li><a href="#">Blog</a></li> -->
+                  <!-- <li><a href="#">Shoping Cart</a></li>
                   <li><a href="#">Check Out</a></li>
-                  <li><a href="#">Blog Details</a></li>
+                  <li><a href="#">Blog Details</a></li> -->
                 </ul>
               </li>
               <li><a href="#">Blog</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="#">Liên hệ</a></li>
             </ul>
           </nav>
         </div>
@@ -74,7 +74,7 @@
                 >
               </li>
             </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
+            <div class="header__cart__price">Khuyến mãi: <span>150.00 đ</span></div>
           </div>
         </div>
       </div>
@@ -93,8 +93,8 @@
               <a href="#" class="logo">V-Shop</a>
             </div>
             <ul>
-              <li>Address: Ludhiana</li>
-              <li>Phone: 1234567890</li>
+              <li>Địa chỉ : Hà Nội</li>
+              <li>Điện thoại: 1234567890</li>
               <li>Email: therichposts@gmail.com</li>
             </ul>
           </div>

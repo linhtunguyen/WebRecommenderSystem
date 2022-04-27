@@ -90,16 +90,38 @@
               </div>
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4 class="panel-title"><a href="#">Tai nghe</a></h4>
+                  <h4 class="panel-title"><a href="#">Tablet</a></h4>
+                </div>
+                <div id="mens" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <ul>
+                      <li><a href="">Fendi</a></li>
+                      <li><a href="">Guess</a></li>
+                      <li><a href="">Valentino</a></li>
+                      <li><a href="">Dior</a></li>
+                      <li><a href="">Versace</a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4 class="panel-title"><a href="#">Sạc</a></h4>
+                  <h4 class="panel-title"><a href="#">Phụ kiện</a></h4>
+                </div>
+                <div id="mens" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <ul>
+                      <li><a href="">Fendi</a></li>
+                      <li><a href="">Guess</a></li>
+                      <li><a href="">Valentino</a></li>
+                      <li><a href="">Dior</a></li>
+                      <li><a href="">Versace</a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="brands_products">
+            <!-- <div class="brands_products">
               <h2>Loại sản phẩm</h2>
               <div class="brands-name">
                 <ul class="nav nav-pills nav-stacked">
@@ -119,7 +141,7 @@
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> -->
             <div class="brands_products">
               <h2>Link mua</h2>
               <div class="brands-name">
@@ -162,7 +184,7 @@
                       (item["Phan Giai"] ?? "")
                     }}
                   </h2>
-                  <p>Web ID: {{ item.code }}</p>
+                  <p>Đánh giá: {{ item.rating }}</p>
                   <img src="images/product-details/rating.png" alt="" />
                   <span>
                     <span>Giá :{{ formatCurrency(item.price) }} đ</span>
@@ -192,6 +214,7 @@
             <div class="col-sm-12">
               <ul class="nav nav-tabs">
                 <li><a href="#details" data-toggle="tab">Mô tả sản phẩm</a></li>
+                <!-- <li>{{ item.MoTa }}</li> -->
               </ul>
             </div>
             <div class="tab-content">
