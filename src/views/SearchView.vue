@@ -57,10 +57,10 @@ export default {
     var self = this;
     var searchQuery = this.$route.params.query;
     var rs = await axios.get(
-      "http://127.0.0.1:8000/items/testmongo_query/" + searchQuery
+      "http://127.0.0.1:8000/v2/items/search/" + searchQuery
     );
-    self.listItem = rs.data.listProduct;
-    console.log(rs.data.listProduct);
+    self.listItem = rs.data;
+    console.log(rs.data);
   },
   created() {
     // this.$watch(
