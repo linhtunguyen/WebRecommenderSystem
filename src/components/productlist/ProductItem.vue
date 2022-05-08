@@ -16,7 +16,18 @@
     </div>
     <div class="featured__item__text">
       <h6>
-        <a href="#">{{ product?.full_name }}</a>
+        <a href="#">{{
+          product?.name +
+          " " +
+          product?.brand +
+          " " +
+          product?.cpu2 +
+          " " +
+          product?.ram +
+          " " +
+          product?.manHinh1
+        }}</a>
+        <!-- <a href="#">{{ product?.full_name }}</a> -->
         <!-- product?.name + " " + product?.brand + " " + product?.cpu1 -->
       </h6>
       <h5>{{ formatCurrency(product?.price) }}</h5>
@@ -48,8 +59,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-
-
 .featured__item__pic {
   height: 178px;
   width: 262px;
