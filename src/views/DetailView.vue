@@ -218,7 +218,7 @@
               </ul>
             </div>
             <div class="tab-content">
-              {{ item.full_name }}
+              {{ item.MoTa }}
             </div>
           </div>
           <!--/category-tab-->
@@ -280,18 +280,18 @@ export default {
   },
   async mounted() {
     var detailItemRes = (
-      await axios.get("http://127.0.0.1:8000/detail/" + this.$route.params.id)
+      await axios.get("http://127.0.0.1:8000/v2/items/" + this.$route.params.id)
     ).data;
 
     console.log(detailItemRes);
-    this.item = detailItemRes.detail_product;
+    this.item = detailItemRes;
 
     try {
       var apiRes = await axios.get(
-        "http://127.0.0.1:8000/items/testmongo/" + this.item.code
+        "http://127.0.0.1:8000/v2/items/relative/" + this.item.code
       );
       console.log(apiRes);
-      this.recommendedItems = apiRes.data.list_item_infor;
+      this.recommendedItems = apiRes.data;
     } catch (error) {
       console.error(error);
     }
