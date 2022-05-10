@@ -59,7 +59,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="section-title">
-            <h2>Sản phẩm nổi bật</h2>
+            <h2>Sản phẩm nổi bật scss {{ this.$store.state.count }}</h2>
           </div>
           <div class="featured__controls">
             <ul>
@@ -83,7 +83,7 @@
       </div>
     </div>
   </section>
-  
+
   <section class="from-blog spad">
     <div class="container">
       <div class="row">
@@ -180,6 +180,7 @@ export default {
     };
   },
   async created() {
+    console.log(this.$store.state.count);
     var self = this;
 
     // var proId = 220042001279;
