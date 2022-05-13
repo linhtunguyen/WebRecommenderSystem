@@ -3,12 +3,28 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-3">
-          <SideBar></SideBar>
+          <div class="hero__categories">
+            <div class="hero__categories__all">
+              <i class="fa fa-bars"></i>
+              <span>Danh mục</span>
+            </div>
+            <ul>
+              <li
+                v-for="item in categories"
+                class="item-li"
+                :key="item.id"
+                @click="changeCategory(item.code)"
+                :class="{ active: item.code == activeCategory }"
+              >
+                <a href="#">{{ item.name }}</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- <SideBar></SideBar> -->
         </div>
         <div class="col-lg-9">
           <div class="hero__search">
-            <!-- <SearchForm v-model="searchQueryString"></SearchForm> -->
-            <!-- :value="searchQueryString" -->
             <div class="hero__search__form">
               <form action="#">
                 <div class="hero__search__categories">
@@ -20,7 +36,6 @@
                   v-model="searchQueryString"
                   placeholder="Bạn tìm gì..."
                 />
-                <!-- v-model="searchQueryString" -->
                 <button
                   class="site-btn"
                   @click="onClickBtnSearch(searchQueryString)"
@@ -42,14 +57,7 @@
           <div
             class="hero__item set-bg"
             data-setbg="//cdn.tgdd.vn/2022/04/banner/okk-1920x450-min-1920x450.jpg"
-          >
-            <!-- <div class="hero__text">
-              <span>HÀNG CHÍNH HÃNG</span>
-              <h2>Đồ điện tử<br />Siêu ưu đãi</h2>
-              <p>Đặt và giao hàng miễn phí toàn quốc</p>
-              <a href="#" class="primary-btn">MUA NGAY</a>
-            </div> -->
-          </div>
+          ></div>
         </div>
       </div>
     </div>
@@ -59,22 +67,25 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="section-title">
-            <h2>Sản phẩm nổi bật scss {{ this.$store.state.count }}</h2>
+            <h2>Sản phẩm nổi bật scss {{ this.count }}</h2>
           </div>
           <div class="featured__controls">
             <ul>
-              <li class="active" data-filter="*">Tất cả</li>
-              <li data-filter=".oranges">Điện thoại</li>
-              <li data-filter=".fresh-meat">Laptop</li>
-              <li data-filter=".vegetables">Tablet</li>
-              <li data-filter=".fastfood">Phụ kiện</li>
+              <li
+                v-for="item in categories"
+                :key="item.id"
+                @click="changeCategory(item.code)"
+                :class="{ active: item.code == activeCategory }"
+              >
+                {{ item.name }}
+              </li>
             </ul>
           </div>
         </div>
       </div>
       <div class="row featured__filter">
         <div
-          v-for="item in hotProducts"
+          v-for="item in displayedProducts"
           :key="item.code"
           class="col-lg-3 col-md-4 col-sm-6 mix oranges"
         >
@@ -102,17 +113,6 @@
                 alt=""
               />
             </div>
-            <!-- <div class="blog__item__text">
-              <ul>
-                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                <li><i class="fa fa-comment-o"></i> 5</li>
-              </ul>
-              <h5><a href="#">Cooking tips make cooking simple</a></h5>
-              <p>
-                Sed quia non numquam modi tempora indunt ut labore et dolore
-                magnam aliquam quaerat
-              </p>
-            </div> -->
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6">
@@ -123,17 +123,6 @@
                 alt=""
               />
             </div>
-            <!-- <div class="blog__item__text">
-              <ul>
-                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                <li><i class="fa fa-comment-o"></i> 5</li>
-              </ul>
-              <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-              <p>
-                Sed quia non numquam modi tempora indunt ut labore et dolore
-                magnam aliquam quaerat
-              </p>
-            </div> -->
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6">
@@ -144,17 +133,6 @@
                 alt=""
               />
             </div>
-            <!-- <div class="blog__item__text">
-              <ul>
-                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                <li><i class="fa fa-comment-o"></i> 5</li>
-              </ul>
-              <h5><a href="#">Visit the clean farm in the US</a></h5>
-              <p>
-                Sed quia non numquam modi tempora indunt ut labore et dolore
-                magnam aliquam quaerat
-              </p>
-            </div> -->
           </div>
         </div>
       </div>
@@ -167,6 +145,7 @@ import SideBar from "@/components/homeview/SideBar.vue";
 import SearchForm from "@/components/search/SearchForm.vue";
 import ProductItem from "@/components/productlist/ProductItem.vue";
 import axios from "axios";
+import { mapState } from "vuex";
 export default {
   components: {
     SideBar,
@@ -175,25 +154,95 @@ export default {
   },
   data() {
     return {
-      hotProducts: [], //Danh sách sản phẩm đang hot
+      categories: [
+        { name: "Tất cả", id: "1", code: "all" },
+        { name: "Chuột", id: "2", code: "Chuột" },
+        { name: "Laptop", id: "3", code: "Laptop" },
+        { name: "Điện thoại", id: "4", code: "Điện thoại" },
+      ],
       searchQueryString: "",
+      displayedProducts: [],
+      fetchedProducts: [],
+      itemsPerPage: 20,
     };
   },
-  async created() {
-    console.log(this.$store.state.count);
-    var self = this;
+  computed: {
+    // filteredProductByList(page = 0) {
 
-    // var proId = 220042001279;
-    try {
-      var rs = await axios.get("http://localhost:8000/items/hotproduct");
-      self.hotProducts = rs.data.list_item_infor;
-      // var rs = await axios.get("http://127.0.0.1:8000/items/" + proId);
-      console.log(rs);
-    } catch (error) {
-      console.error(error);
-    }
+    //   return this.getListInRange(this.fetchedProducts, 0, this.itemsPerPage);
+    // },
+
+    activeCategory() {
+      this.updateDisplayedProducts(this.chosenCategory);
+
+      return this.chosenCategory;
+    },
+
+    ...mapState({
+      count: (state) => state.count,
+      chosenCategory: (state) => state.chosenCategory,
+    }),
+  },
+  async created() {
+    console.log("[ HomeView ] created()");
+
+    this.changeCategory("all");
+    var self = this;
+  },
+  watch: {
+    fetchedProducts(newVal) {
+      if (newVal) {
+        this.displayedProducts = this.getListInRange(
+          newVal,
+          0,
+          this.itemsPerPage
+        );
+      } else {
+        this.fetchedProducts = [];
+      }
+    },
   },
   methods: {
+    getListInRange(originList, startIndex, endIndex) {
+      var list = [];
+      if (endIndex > originList.length) {
+        endIndex = originList.length;
+      }
+
+      for (let index = startIndex; index < endIndex; index++) {
+        const element = originList[index];
+        list.push(element);
+      }
+
+      return list;
+    },
+
+    async updateDisplayedProducts(newCategory) {
+      console.log("[ updateDisplayedProducts ] newCategory: ", newCategory);
+      var self = this;
+      try {
+        if (newCategory == "all") {
+          console.log("[ displayedProducts ] chosenCategory = all");
+          var rs = await axios.get("http://localhost:8000/items/hotproduct");
+        } else {
+          console.log("[ displayedProducts ] chosenCategory = else");
+          var rs = await axios.get(
+            `http://localhost:8000/category/${newCategory}`
+          );
+        }
+        console.log(rs.data);
+
+        self.fetchedProducts = rs.data;
+        // this.displayedProducts = rs.data;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+    changeCategory(newCategory) {
+      this.$store.commit("chooseCategory", newCategory);
+    },
+
     /**
      * XỬ lý sự kiện click vào nút tìm kiếm
      * Author: TQHUY (11/03/2022)
@@ -233,11 +282,32 @@ export default {
   }
 }
 
+.featured__controls {
+  ul {
+    li {
+      &.active {
+        background-color: red;
+        color: green;
+      }
+    }
+  }
+}
+
 .featured {
   padding-top: 10px;
 
   // .section-title {
 
   // }
+}
+
+.hero__categories {
+  ul {
+    li {
+      &.active {
+        background-color: red;
+      }
+    }
+  }
 }
 </style>

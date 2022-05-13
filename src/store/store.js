@@ -1,15 +1,21 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
 
 // Create a new store instance.
 export const store = createStore({
-  state () {
+  state() {
     return {
-      count: 0
-    }
+      count: 99,
+      chosenCategory: "all",
+    };
   },
   mutations: {
-    increment (state) {
-      state.count++
-    }
-  }
-})
+    increment(state) {
+      state.count++;
+    },
+
+    chooseCategory(state, newCategory) {
+      console.log("[ chooseCategory ] newCategory: ", newCategory);
+      state.chosenCategory = newCategory;
+    },
+  },
+});
