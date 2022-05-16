@@ -54,10 +54,19 @@
               </div>
             </div>
           </div>
-          <div
-            class="hero__item set-bg"
-            data-setbg="//cdn.tgdd.vn/2022/04/banner/okk-1920x450-min-1920x450.jpg"
-          ></div>
+          <div class="hero__item set-bg">
+            <carousel :items-to-show="1" :snapAlign="'center'">
+              <slide v-for="slide in homeCarousel" :key="slide.id">
+                <!-- {{ slide }} -->
+                <img :src="slide.img" alt="" />
+              </slide>
+
+              <template #addons>
+                <navigation />
+                <pagination />
+              </template>
+            </carousel>
+          </div>
         </div>
       </div>
     </div>
@@ -146,11 +155,19 @@ import SearchForm from "@/components/search/SearchForm.vue";
 import ProductItem from "@/components/productlist/ProductItem.vue";
 import axios from "axios";
 import { mapState } from "vuex";
+
+import "vue3-carousel/dist/carousel.css";
+import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
+
 export default {
   components: {
     SideBar,
     ProductItem,
     SearchForm,
+    Carousel,
+    Slide,
+    Pagination,
+    Navigation,
   },
   data() {
     return {
@@ -169,6 +186,24 @@ export default {
       displayedProducts: [],
       fetchedProducts: [],
       itemsPerPage: 40,
+      homeCarousel: [
+        {
+          id: 1,
+          img: "https://cdn.cellphones.com.vn/media/ltsoft/promotion/s22.png",
+        },
+        {
+          id: 2,
+          img: "https://cdn.cellphones.com.vn/media/ltsoft/promotion/Macbook_Air_M1.png",
+        },
+        {
+          id: 3,
+          img: "https://cdn.cellphones.com.vn/media/ltsoft/promotion/690-300-max_2__1.png",
+        },
+        {
+          id: 4,
+          img: "https://cdn.cellphones.com.vn/media/ltsoft/promotion/Wh-1000xm4.png",
+        },
+      ],
     };
   },
   computed: {
@@ -272,13 +307,28 @@ export default {
     margin: 0;
   }
   .hero__item {
-    background-image: url("https://cdn.tgdd.vn/2022/03/banner/XA-HANG-(-830-X-300)(1)(1)-830x300.jpg");
-    // background-image: attr(data-setbg);
-    background-size: contain;
-    background-position: right;
-    height: 310px;
+    // background-image: url("https://cdn.tgdd.vn/2022/03/banner/XA-HANG-(-830-X-300)(1)(1)-830x300.jpg");
+    // // background-image: attr(data-setbg);
+    // background-size: contain;
+    // background-position: right;
+    height: 390px;
+    margin: 10px 0;
     padding: 0;
-    // background-color: red;
+    // background-color: wheat;
+
+    .carousel {
+      // background-color: lightblue;
+      // height: 100%;
+      // width: 100%;
+      img {
+        width: 100%;
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+      }
+    }
   }
   .hero__text {
     h2 {
@@ -295,6 +345,7 @@ export default {
         background-color: rgb(205, 237, 205);
         color: green;
         animation: 0.5s;
+        font-weight: bold;
       }
     }
   }
