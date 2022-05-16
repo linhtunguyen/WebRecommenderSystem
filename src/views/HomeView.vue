@@ -49,8 +49,8 @@
                 <i class="fa fa-phone"></i>
               </div>
               <div class="hero__search__phone__text">
-                <h5>1234567890</h5>
-                <span>support 24/7 time</span>
+                <h5>1900 561 252</h5>
+                <span>hỗ trợ 24/7</span>
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="section-title">
-            <h2>Sản phẩm nổi bật scss {{ this.count }}</h2>
+            <h2>Sản phẩm nổi bật</h2>
           </div>
           <div class="featured__controls">
             <ul>
@@ -159,11 +159,16 @@ export default {
         { name: "Chuột", id: "2", code: "Chuột" },
         { name: "Laptop", id: "3", code: "Laptop" },
         { name: "Điện thoại", id: "4", code: "Điện thoại" },
+        { name: "Máy in", id: "5", code: "Máy in" },
+        { name: "Máy tính bảng", id: "6", code: "Máy tính bảng" },
+        { name: "Sạc", id: "7", code: "Sạc" },
+        { name: "Tai nghe", id: "8", code: "Tai nghe" },
+        { name: "Thiết bị mạng", id: "9", code: "Thiết bị mạng" },
       ],
       searchQueryString: "",
       displayedProducts: [],
       fetchedProducts: [],
-      itemsPerPage: 20,
+      itemsPerPage: 40,
     };
   },
   computed: {
@@ -282,12 +287,14 @@ export default {
   }
 }
 
-.featured__controls {
+.featured__controls,
+.hero__categories {
   ul {
     li {
       &.active {
-        background-color: red;
+        background-color: rgb(205, 237, 205);
         color: green;
+        animation: 0.5s;
       }
     }
   }
@@ -295,19 +302,5 @@ export default {
 
 .featured {
   padding-top: 10px;
-
-  // .section-title {
-
-  // }
-}
-
-.hero__categories {
-  ul {
-    li {
-      &.active {
-        background-color: red;
-      }
-    }
-  }
 }
 </style>
